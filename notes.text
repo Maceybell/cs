@@ -1,0 +1,21 @@
+Results for the extraLargeArray     
+insert 1.2415807 s
+append 6.6488 ms 
+
+Results for the largeArray
+insert 16.956 ms  
+append 1.7221 ms 
+
+Results for the mediumArray
+insert 273.6 μs   
+append 200.9 μs 
+
+Results for the smallArray
+insert 79.2 μs    
+append 149.8 μs
+
+Results for the tinyArray
+insert 102.1 μs   
+append 195.5 μs  
+
+When running the extraLargeArray we see that the runtime for insert is significantly greater than the runtime for append. However, if we had only looked at tinyArray and smallArray, the results could be deceiving as insert runs faster for each. push() has a time complexity of O(1) but unshift has a time complexity of O(n). That means that when these functions are called in a for loop, the result will be a time complexity of O(n) vs O(n)^2 respectively. Insert will seem to run faster until an array of certain sized is reach, at which point the gap between insert and append will become greater and greater moving forward as array size increases, with insert becoming a significantly slower option. The reason for unshift being less efficient is that when an element is aadded to the beginning of the array, the index of every other element but be incremented by 1 as well.
